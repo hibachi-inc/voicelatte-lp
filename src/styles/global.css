@@ -1,0 +1,27 @@
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --espresso: #5C3928;
+  --dark-coffee: #6F4C3E;
+  --latte: #C1A07B;
+  --cream: #E8D5A1;
+  --milk: #F2E0C0;
+  --window-bg: #FDF2D2;
+  --field-bg: #FBFAF8;
+  --white: #FFFFFF;
+  --success: #599A4D;
+  --font-jp: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
+  --font-display: 'DM Serif Display', serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-jp);
+  color: var(--espresso);
+  background: var(--field-bg);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--dark-coffee); }

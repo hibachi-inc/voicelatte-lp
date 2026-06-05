@@ -1,0 +1,288 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="VoiceLatte — Mac向けローカルAI音声入力">
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-icon">&#9749;</div>
+    <h1>VoiceLatte</h1>
+    <p class="tagline">Mac向けローカルAI音声入力</p>
+    <div class="cta-group">
+      <a href="https://github.com/hibachi-inc/voicelatte-releases/releases/latest" class="btn btn-primary">
+        &#11015; DMGをダウンロード
+      </a>
+      <a href="https://github.com/hibachi-inc/OpenVoiceText" class="btn btn-secondary">
+        &#128736; ソースコード
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <h2>Features</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feature-icon">&#127908;</div>
+      <h3>どこでも音声入力</h3>
+      <p>ショートカットキーを押すだけで、どのアプリからでも音声入力を開始。カーソル位置にテキストが自動挿入されます。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">&#9995;</div>
+      <h3>長押し入力</h3>
+      <p>キーを押している間だけ録音。離すと入力完了。トランシーバーのように直感的に使えます。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">&#10024;</div>
+      <h3>AI テキスト整形</h3>
+      <p>Apple Intelligenceが句読点の追加、フィラー除去、文体調整を自動で行います。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">&#128274;</div>
+      <h3>完全プライベート</h3>
+      <p>音声認識もAI整形もすべてMac上で処理。音声やテキストがインターネットに送信されることはありません。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">&#128263;</div>
+      <h3>自動ミュート</h3>
+      <p>録音中は他のアプリの音量を自動で下げます。音楽を聴きながらでも正確に音声入力できます。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">&#9749;</div>
+      <h3>コーヒーブレイクのように</h3>
+      <p>温かみのあるUIで、音声入力の体験をリラックスしたものに。タイピングに疲れたら、一杯のラテのように。</p>
+    </div>
+  </div>
+</section>
+
+<section class="privacy-section">
+  <div class="privacy-badge">
+    <span class="icon">&#128994;</span>
+    100% オンデバイス処理
+  </div>
+  <p>音声データもテキストデータも、Macの外に出ることは一切ありません。ネットワーク接続すら不要です。</p>
+</section>
+
+<section class="pro-section">
+  <h2>VoiceLatte Pro</h2>
+  <p class="subtitle">翻訳とカスタム整形で音声入力をさらに便利に</p>
+  <div class="pro-features">
+    <div class="pro-feature">
+      <div class="icon">&#127760;</div>
+      <h3>クイック多言語翻訳</h3>
+      <p>話した言葉をリアルタイムで翻訳。ショートカットキーで言語を切り替えて、翻訳されたテキストが入力されます。</p>
+    </div>
+    <div class="pro-feature">
+      <div class="icon">&#9881;</div>
+      <h3>アプリ別カスタム整形</h3>
+      <p>アプリごとに異なる整形ルールを設定。チャットではカジュアルに、メールでは丁寧に。</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-links">
+    <a href="privacy/">プライバシーポリシー</a>
+    <a href="https://github.com/hibachi-inc/OpenVoiceText">GitHub</a>
+    <a href="https://x.com/tanakaisworking">@tanakaisworking</a>
+    <a href="https://hibachi-inc.jp">ヒバチ株式会社</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 HIBACHI inc. All rights reserved.</p>
+</footer>
+
+</Base>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, var(--window-bg) 0%, var(--milk) 50%, var(--cream) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(193,160,123,0.3) 0%, transparent 70%);
+    top: -200px;
+    right: -100px;
+  }
+  .hero-inner {
+    max-width: 800px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.5rem;
+  }
+  .tagline {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--dark-coffee);
+    margin-bottom: 2.5rem;
+  }
+  .cta-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    border-radius: 100px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  .btn-primary {
+    background: var(--espresso);
+    color: var(--white);
+  }
+  .btn-primary:hover {
+    background: var(--dark-coffee);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(92, 57, 40, 0.25);
+  }
+  .btn-secondary {
+    background: var(--white);
+    color: var(--espresso);
+    border: 1.5px solid var(--latte);
+  }
+  .btn-secondary:hover {
+    background: var(--window-bg);
+    transform: translateY(-2px);
+  }
+
+  .features {
+    padding: 6rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .features h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .feature-card {
+    background: var(--white);
+    border: 1px solid rgba(193, 160, 123, 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(92, 57, 40, 0.08);
+  }
+  .feature-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .feature-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .feature-card p { font-size: 0.9rem; color: var(--dark-coffee); line-height: 1.7; }
+
+  .privacy-section {
+    background: var(--window-bg);
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  .privacy-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--white);
+    border: 1.5px solid var(--success);
+    border-radius: 100px;
+    padding: 1rem 2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .privacy-badge .icon { font-size: 1.5rem; }
+  .privacy-section p {
+    color: var(--dark-coffee);
+    max-width: 500px;
+    margin: 0 auto;
+    font-size: 0.95rem;
+  }
+
+  .pro-section {
+    padding: 6rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .pro-section h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .subtitle { color: var(--dark-coffee); margin-bottom: 2.5rem; }
+  .pro-features {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .pro-feature {
+    background: var(--window-bg);
+    border-radius: 16px;
+    padding: 2rem;
+    flex: 1;
+    min-width: 240px;
+    max-width: 340px;
+  }
+  .pro-feature .icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .pro-feature h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .pro-feature p { font-size: 0.9rem; color: var(--dark-coffee); }
+
+  footer {
+    background: var(--espresso);
+    color: var(--cream);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  footer :global(a) { color: var(--latte); text-decoration: none; }
+  footer :global(a:hover) { text-decoration: underline; }
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+  }
+  .footer-copy { font-size: 0.8rem; opacity: 0.7; }
+
+  @media (max-width: 600px) {
+    .hero-inner { padding: 1.5rem; }
+    .features { padding: 4rem 1.5rem; }
+    .feature-grid { grid-template-columns: 1fr; }
+  }
+</style>
