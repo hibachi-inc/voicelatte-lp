@@ -1,0 +1,110 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Latte — by HIBACHI inc." description="Latteシリーズ：日常をちょっとラクにするMacアプリ">
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Latte</h1>
+    <p class="tagline">日常をちょっとラクにするMacアプリ</p>
+  </div>
+</section>
+
+<section class="apps">
+  <a href="/voice/" class="app-card">
+    <img src="/icon.png" alt="VoiceLatte" class="app-icon" width="80" height="80">
+    <div class="app-info">
+      <h2>VoiceLatte</h2>
+      <p>Mac向けローカルAI音声入力。ショートカットキーでどこでも音声入力。完全オンデバイス処理。</p>
+      <span class="app-link">詳しく見る &rarr;</span>
+    </div>
+  </a>
+</section>
+
+<footer>
+  <p>&copy; 2026 HIBACHI inc.</p>
+</footer>
+
+</Base>
+
+<style>
+  .hero {
+    padding: 6rem 2rem 3rem;
+    text-align: center;
+    background: linear-gradient(160deg, var(--window-bg) 0%, var(--milk) 50%, var(--cream) 100%);
+  }
+  .hero-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.5rem;
+  }
+  .tagline {
+    font-size: 1.1rem;
+    color: var(--dark-coffee);
+  }
+
+  .apps {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+  }
+  .app-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: var(--white);
+    border: 1px solid rgba(193, 160, 123, 0.2);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    text-decoration: none;
+    color: var(--espresso);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .app-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(92, 57, 40, 0.1);
+  }
+  .app-icon {
+    border-radius: 18%;
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(92, 57, 40, 0.12);
+  }
+  .app-info h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  .app-info p {
+    font-size: 0.9rem;
+    color: var(--dark-coffee);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+  }
+  .app-link {
+    font-size: 0.85rem;
+    color: var(--latte);
+    font-weight: 500;
+  }
+
+  footer {
+    background: var(--espresso);
+    color: var(--cream);
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 500px) {
+    .app-card {
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>
