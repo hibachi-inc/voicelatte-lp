@@ -1,3 +1,3 @@
 / /en/ 302
-/voice/ /en/voice/ 302
-/voice/privacy/ /en/voice/privacy/ 302
+/voice/* /en/voice/:splat 302
+/voice /en/voice/ 302
