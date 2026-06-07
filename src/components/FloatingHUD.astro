@@ -8,58 +8,72 @@ interface Props {
 const { lang } = Astro.props;
 ---
 <div class="hud-wrapper">
-  <div class="hud">
-    <div class="hud-indicator">
-      <div class="hud-glow"></div>
-      <div class="hud-icon-bg"></div>
-      <!-- Mic icon (listening) -->
-      <svg class="hud-icon icon-mic" viewBox="0 0 24 24" fill="none" width="13" height="13">
-        <path d="M12 2a3 3 0 00-3 3v6a3 3 0 006 0V5a3 3 0 00-3-3z" fill="currentColor"/>
-        <path d="M19 10a7 7 0 01-14 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-      </svg>
-      <!-- Sparkle icon (refining) -->
-      <svg class="hud-icon icon-sparkle" viewBox="0 0 24 24" fill="currentColor" width="13" height="13">
-        <path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2z"/>
-        <path d="M18 14l.75 2.25L21 17l-2.25.75L18 20l-.75-2.25L15 17l2.25-.75L18 14z" opacity="0.6"/>
-      </svg>
-      <!-- Check icon (done) -->
-      <svg class="hud-icon icon-check" viewBox="0 0 24 24" fill="none" width="14" height="14">
-        <circle cx="12" cy="12" r="9" fill="currentColor" opacity="0.15"/>
-        <path d="M8 12.5l2.5 2.5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <!-- Spinner ring (refining) -->
-      <div class="spinner-ring"></div>
+  <div class="hud-track">
+    <!-- State 1: Listening -->
+    <div class="hud state-listening">
+      <div class="indicator ind-brown">
+        <div class="ind-glow"></div>
+        <div class="ind-bg"></div>
+        <svg class="ind-icon" viewBox="0 0 24 24" fill="none" width="13" height="13">
+          <path d="M12 2a3 3 0 00-3 3v6a3 3 0 006 0V5a3 3 0 00-3-3z" fill="currentColor"/>
+          <path d="M19 10a7 7 0 01-14 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="hud-body">
+        <span class="hud-label">{t(lang, 'mock.hud.listening')}</span>
+        <span class="hud-text">{t(lang, 'mock.hud.transcript')}</span>
+      </div>
+      <div class="waveform">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </div>
+      <span class="hud-hint">⌥Space stop</span>
     </div>
-    <div class="hud-text">
-      <span class="hud-status">
-        <span class="status-listening">{t(lang, 'mock.hud.listening')}</span>
-        <span class="status-refining">{t(lang, 'mock.hud.refining')}</span>
-        <span class="status-done">{t(lang, 'mock.hud.done')}</span>
-      </span>
-      <span class="hud-transcript">
-        <span class="transcript-listening">{t(lang, 'mock.hud.transcript')}</span>
-        <span class="transcript-refining">{t(lang, 'mock.hud.transcript.full')}</span>
-        <span class="transcript-done">{t(lang, 'mock.hud.transcript.full')}</span>
-      </span>
+
+    <!-- State 2: Refining -->
+    <div class="hud state-refining">
+      <div class="indicator ind-amber">
+        <div class="ind-glow"></div>
+        <div class="ind-bg"></div>
+        <svg class="ind-icon" viewBox="0 0 24 24" fill="currentColor" width="13" height="13">
+          <path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2z"/>
+          <path d="M18 14l.75 2.25L21 17l-2.25.75L18 20l-.75-2.25L15 17l2.25-.75L18 14z" opacity="0.5"/>
+        </svg>
+        <div class="spinner"></div>
+      </div>
+      <div class="hud-body">
+        <span class="hud-label">{t(lang, 'mock.hud.refining')}</span>
+        <span class="hud-text">{t(lang, 'mock.hud.transcript.full')}</span>
+      </div>
+      <span class="hud-hint">⌥Space stop</span>
     </div>
-    <div class="hud-waveform">
-      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+
+    <!-- State 3: Copied -->
+    <div class="hud state-done">
+      <div class="indicator ind-green">
+        <div class="ind-glow"></div>
+        <div class="ind-bg"></div>
+        <svg class="ind-icon" viewBox="0 0 24 24" fill="none" width="14" height="14">
+          <path d="M8 12.5l2.5 2.5 5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="hud-body">
+        <span class="hud-label">{t(lang, 'mock.hud.done')}</span>
+        <span class="hud-text">{t(lang, 'mock.hud.transcript.full')}</span>
+      </div>
+      <span class="paste-key">⌘V</span>
     </div>
-    <span class="hud-hint">
-      <span class="hint-stop">⌥Space stop</span>
-      <span class="hint-paste">⌘V</span>
-    </span>
   </div>
 </div>
 
 <style>
-  /* ── Cycle: 6s total ──
-     0.0s–3.0s  Listening (brown)   50%
-     3.0s–4.2s  Refining (amber)    20%
-     4.2s–5.6s  Done (green)        23%
-     5.6s–6.0s  Fade reset           7%
+  /*
+    Cycle: 6s total
+    0–3s    Listening  (50%)
+    3–4.2s  Refining   (20%)
+    4.2–5.6s Done      (23%)
+    5.6–6s  Reset       (7%)
   */
 
   .hud-wrapper {
@@ -67,27 +81,65 @@ const { lang } = Astro.props;
     justify-content: center;
     padding: 1.5rem 0 0.5rem;
   }
+
+  .hud-track {
+    position: relative;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Each state is absolutely stacked */
   .hud {
+    position: absolute;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 7px 14px 7px 10px;
-    background: rgba(40, 24, 16, 0.82);
+    padding: 7px 14px 7px 8px;
     border-radius: 100px;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    animation: hud-border 6s ease-in-out infinite;
+    white-space: nowrap;
+    opacity: 0;
+    transition: none;
   }
 
-  @keyframes hud-border {
-    0%, 45%   { box-shadow: 0 0 0 1px rgba(111,76,62,0.3) inset, 0 0 14px rgba(111,76,62,0.25), 0 4px 16px rgba(0,0,0,0.2); }
-    50%, 65%  { box-shadow: 0 0 0 1px rgba(191,128,51,0.35) inset, 0 0 14px rgba(191,128,51,0.2), 0 4px 16px rgba(0,0,0,0.2); }
-    70%, 90%  { box-shadow: 0 0 0 1px rgba(89,154,77,0.35) inset, 0 0 14px rgba(89,154,77,0.2), 0 4px 16px rgba(0,0,0,0.2); }
-    95%, 100% { box-shadow: 0 0 0 1px rgba(111,76,62,0.3) inset, 0 0 14px rgba(111,76,62,0.25), 0 4px 16px rgba(0,0,0,0.2); }
+  .state-listening {
+    background: rgba(40, 24, 16, 0.85);
+    box-shadow: 0 0 0 1px rgba(111,76,62,0.3) inset, 0 0 14px rgba(111,76,62,0.2), 0 4px 14px rgba(0,0,0,0.18);
+    animation: fade-listening 6s ease-in-out infinite;
+  }
+  .state-refining {
+    background: rgba(40, 28, 12, 0.85);
+    box-shadow: 0 0 0 1px rgba(191,128,51,0.3) inset, 0 0 14px rgba(191,128,51,0.15), 0 4px 14px rgba(0,0,0,0.18);
+    animation: fade-refining 6s ease-in-out infinite;
+  }
+  .state-done {
+    background: rgba(20, 32, 18, 0.85);
+    box-shadow: 0 0 0 1px rgba(89,154,77,0.3) inset, 0 0 14px rgba(89,154,77,0.15), 0 4px 14px rgba(0,0,0,0.18);
+    animation: fade-done 6s ease-in-out infinite;
+  }
+
+  @keyframes fade-listening {
+    0%, 2%    { opacity: 0; }
+    5%, 47%   { opacity: 1; }
+    50%, 100% { opacity: 0; }
+    95%       { opacity: 0; }
+  }
+  @keyframes fade-refining {
+    0%, 48%   { opacity: 0; }
+    51%, 66%  { opacity: 1; }
+    69%, 100% { opacity: 0; }
+  }
+  @keyframes fade-done {
+    0%, 68%   { opacity: 0; }
+    71%, 91%  { opacity: 1; }
+    94%, 100% { opacity: 0; }
   }
 
   /* ── Indicator ── */
-  .hud-indicator {
+  .indicator {
     position: relative;
     width: 24px;
     height: 24px;
@@ -96,131 +148,83 @@ const { lang } = Astro.props;
     justify-content: center;
     flex-shrink: 0;
   }
-  .hud-glow {
+  .ind-glow {
     position: absolute;
     width: 30px;
     height: 30px;
     border-radius: 50%;
     filter: blur(4px);
-    animation: glow-cycle 6s ease-in-out infinite;
+    animation: pulse-glow 2s ease-in-out infinite;
   }
-  @keyframes glow-cycle {
-    0%, 45%   { background: rgba(111,76,62,0.35); transform: scale(1); }
-    48%       { background: rgba(111,76,62,0.35); transform: scale(0.8); }
-    50%, 65%  { background: rgba(191,128,51,0.3); transform: scale(1.05); }
-    68%       { background: rgba(191,128,51,0.3); transform: scale(0.8); }
-    70%, 90%  { background: rgba(89,154,77,0.35); transform: scale(1.1); }
-    95%, 100% { background: rgba(111,76,62,0.35); transform: scale(1); }
-  }
-  .hud-icon-bg {
+  .ind-bg {
     position: absolute;
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    animation: iconbg-cycle 6s ease-in-out infinite;
   }
-  @keyframes iconbg-cycle {
-    0%, 45%   { background: rgba(111,76,62,0.22); }
-    50%, 65%  { background: rgba(191,128,51,0.18); }
-    70%, 90%  { background: rgba(89,154,77,0.2); }
-    95%, 100% { background: rgba(111,76,62,0.22); }
+  .ind-icon {
+    position: relative;
   }
 
-  /* Icons — show/hide by phase */
-  .hud-icon {
-    position: absolute;
-    transition: opacity 0.25s;
-  }
-  .icon-mic     { animation: show-mic 6s ease-in-out infinite; }
-  .icon-sparkle { animation: show-sparkle 6s ease-in-out infinite; }
-  .icon-check   { animation: show-check 6s ease-in-out infinite; }
-
-  @keyframes show-mic {
-    0%, 46%   { opacity: 1; color: var(--latte); }
-    50%, 100% { opacity: 0; color: var(--latte); }
-    95%       { opacity: 0; }
-    97%, 100% { opacity: 1; }
-  }
-  @keyframes show-sparkle {
-    0%, 48%  { opacity: 0; }
-    50%, 65% { opacity: 1; color: #bf8033; }
-    68%, 100%{ opacity: 0; }
-  }
-  @keyframes show-check {
-    0%, 67%  { opacity: 0; }
-    70%, 90% { opacity: 1; color: #599a4d; }
-    95%, 100%{ opacity: 0; }
+  @keyframes pulse-glow {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50%      { transform: scale(1.15); opacity: 0.9; }
   }
 
-  /* Spinner ring — visible only during refining */
-  .spinner-ring {
+  /* Brown (listening) */
+  .ind-brown .ind-glow { background: rgba(111,76,62,0.35); }
+  .ind-brown .ind-bg   { background: rgba(111,76,62,0.22); }
+  .ind-brown .ind-icon { color: var(--latte); }
+
+  /* Amber (refining) */
+  .ind-amber .ind-glow { background: rgba(191,128,51,0.3); }
+  .ind-amber .ind-bg   { background: rgba(191,128,51,0.18); }
+  .ind-amber .ind-icon { color: #bf8033; }
+
+  /* Green (done) */
+  .ind-green .ind-glow { background: rgba(89,154,77,0.35); }
+  .ind-green .ind-bg   { background: rgba(89,154,77,0.2); }
+  .ind-green .ind-icon { color: #599a4d; }
+
+  /* Spinner ring (refining only) */
+  .spinner {
     position: absolute;
     width: 26px;
     height: 26px;
     border-radius: 50%;
     border: 1.5px solid transparent;
     border-top-color: rgba(191,128,51,0.5);
-    animation: spinner-vis 6s ease-in-out infinite, spin 1s linear infinite;
+    animation: spin 1s linear infinite;
   }
-  @keyframes spinner-vis {
-    0%, 48%   { opacity: 0; }
-    50%, 65%  { opacity: 1; }
-    68%, 100% { opacity: 0; }
-  }
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
+  @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* ── Text ── */
-  .hud-text {
+  /* ── Body text ── */
+  .hud-body {
     display: flex;
     flex-direction: column;
     gap: 1px;
-    min-width: 0;
   }
-  .hud-status {
+  .hud-label {
     font-size: 9px;
     font-weight: 500;
+    color: rgba(255,255,255,0.5);
     letter-spacing: 0.02em;
-    position: relative;
-    height: 13px;
-    display: block;
   }
-  .hud-status span {
-    position: absolute;
-    left: 0;
-    top: 0;
-    white-space: nowrap;
-  }
-  .status-listening { animation: show-mic 6s ease-in-out infinite; color: rgba(255,255,255,0.55); }
-  .status-refining  { animation: show-sparkle 6s ease-in-out infinite; color: rgba(191,128,51,0.7); }
-  .status-done      { animation: show-check 6s ease-in-out infinite; color: rgba(89,154,77,0.7); }
+  .state-refining .hud-label { color: rgba(191,128,51,0.7); }
+  .state-done .hud-label     { color: rgba(89,154,77,0.7); }
 
-  .hud-transcript {
+  .hud-text {
     font-size: 11.5px;
     font-weight: 500;
-    position: relative;
-    height: 16px;
-    display: block;
+    color: rgba(255,255,255,0.88);
   }
-  .hud-transcript span {
-    position: absolute;
-    left: 0;
-    top: 0;
-    white-space: nowrap;
-  }
-  .transcript-listening { animation: show-mic 6s ease-in-out infinite; color: rgba(255,255,255,0.88); }
-  .transcript-refining  { animation: show-sparkle 6s ease-in-out infinite; color: rgba(255,255,255,0.75); }
-  .transcript-done      { animation: show-check 6s ease-in-out infinite; color: rgba(255,255,255,0.88); }
 
-  /* ── Waveform — only during listening ── */
-  .hud-waveform {
+  /* ── Waveform ── */
+  .waveform {
     display: flex;
     align-items: center;
     gap: 1.5px;
     height: 18px;
-    margin-left: 2px;
-    animation: show-mic 6s ease-in-out infinite;
   }
   .bar {
     width: 2px;
@@ -237,45 +241,23 @@ const { lang } = Astro.props;
   .bar:nth-child(7) { animation-delay: 0.2s; }
   .bar:nth-child(8) { animation-delay: 0.1s; }
   .bar:nth-child(9) { animation-delay: 0s; }
-
   @keyframes wave {
     0%, 100% { height: 3px; }
-    50% { height: 14px; }
+    50%      { height: 14px; }
   }
 
-  /* ── Hint — switches between stop and paste ── */
+  /* ── Hints ── */
   .hud-hint {
     font-size: 8px;
     font-weight: 500;
-    white-space: nowrap;
-    margin-left: 2px;
-    position: relative;
-    height: 14px;
-    min-width: 48px;
-  }
-  .hud-hint span {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .hint-stop {
     color: rgba(255,255,255,0.2);
-    animation: show-stop 6s ease-in-out infinite;
   }
-  .hint-paste {
+  .paste-key {
     font-size: 10px;
     font-weight: 700;
-    padding: 1px 5px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 3px;
-    animation: show-check 6s ease-in-out infinite;
     color: rgba(255,255,255,0.9);
-  }
-  @keyframes show-stop {
-    0%, 46%   { opacity: 1; }
-    50%, 65%  { opacity: 1; }
-    68%, 100% { opacity: 0; }
-    95%       { opacity: 0; }
-    97%, 100% { opacity: 1; }
+    padding: 2px 6px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 4px;
   }
 </style>
