@@ -1,0 +1,159 @@
+---
+import type { Lang } from '../i18n/translations';
+import { t } from '../i18n/translations';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+---
+<div class="hud-wrapper">
+  <div class="hud">
+    <div class="hud-indicator">
+      <div class="hud-glow"></div>
+      <div class="hud-icon-bg"></div>
+      <svg class="hud-mic" viewBox="0 0 24 24" fill="none" width="13" height="13">
+        <path d="M12 2a3 3 0 00-3 3v6a3 3 0 006 0V5a3 3 0 00-3-3z" fill="currentColor"/>
+        <path d="M19 10a7 7 0 01-14 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+        <path d="M12 17v3M9 20h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+      </svg>
+    </div>
+    <div class="hud-text">
+      <span class="hud-status">{t(lang, 'mock.hud.listening')}</span>
+      <span class="hud-transcript">{t(lang, 'mock.hud.transcript')}</span>
+    </div>
+    <div class="hud-waveform">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <span class="hud-hint">⌥Space stop</span>
+  </div>
+</div>
+
+<style>
+  .hud-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+  .hud {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px 7px 10px;
+    background: rgba(40, 24, 16, 0.82);
+    border-radius: 100px;
+    border: 1px solid rgba(193, 160, 123, 0.2);
+    box-shadow:
+      0 0 12px rgba(111, 76, 62, 0.25),
+      0 4px 16px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Indicator */
+  .hud-indicator {
+    position: relative;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .hud-glow {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(111, 76, 62, 0.3);
+    filter: blur(3px);
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+  .hud-icon-bg {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(111, 76, 62, 0.2);
+  }
+  .hud-mic {
+    position: relative;
+    color: var(--latte);
+    animation: mic-pulse 2s ease-in-out infinite;
+  }
+
+  /* Text */
+  .hud-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+  }
+  .hud-status {
+    font-size: 9px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 0.02em;
+  }
+  .hud-transcript {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.88);
+    white-space: nowrap;
+  }
+
+  /* Waveform */
+  .hud-waveform {
+    display: flex;
+    align-items: center;
+    gap: 1.5px;
+    height: 18px;
+    margin-left: 2px;
+  }
+  .bar {
+    width: 2px;
+    border-radius: 1px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.3));
+    animation: wave 1.2s ease-in-out infinite;
+  }
+  .bar:nth-child(1) { animation-delay: 0s; }
+  .bar:nth-child(2) { animation-delay: 0.1s; }
+  .bar:nth-child(3) { animation-delay: 0.2s; }
+  .bar:nth-child(4) { animation-delay: 0.3s; }
+  .bar:nth-child(5) { animation-delay: 0.4s; }
+  .bar:nth-child(6) { animation-delay: 0.3s; }
+  .bar:nth-child(7) { animation-delay: 0.2s; }
+  .bar:nth-child(8) { animation-delay: 0.1s; }
+  .bar:nth-child(9) { animation-delay: 0s; }
+
+  /* Hint */
+  .hud-hint {
+    font-size: 8px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.2);
+    white-space: nowrap;
+    margin-left: 4px;
+  }
+
+  /* Animations */
+  @keyframes wave {
+    0%, 100% { height: 3px; }
+    50% { height: 14px; }
+  }
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.15); }
+  }
+  @keyframes mic-pulse {
+    0%, 100% { opacity: 0.85; }
+    50% { opacity: 1; }
+  }
+</style>

@@ -4,6 +4,7 @@ import { t } from '../i18n/translations';
 import Base from '../layouts/Base.astro';
 import LangSwitch from './LangSwitch.astro';
 import AppMockup from './AppMockup.astro';
+import FloatingHUD from './FloatingHUD.astro';
 
 interface Props {
   lang: Lang;
@@ -32,6 +33,7 @@ const { lang } = Astro.props;
   </section>
 
   <section class="showcase">
+    <FloatingHUD lang={lang} />
     <AppMockup lang={lang} />
   </section>
 
