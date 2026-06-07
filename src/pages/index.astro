@@ -3,23 +3,23 @@ import Base from '../layouts/Base.astro';
 ---
 <Base title="Latte — by HIBACHI inc." description="Latteシリーズ：日常をちょっとラクにするMacアプリ">
 
-<section class="hero">
-  <div class="hero-inner">
+<main>
+  <section class="hero">
     <h1>Latte</h1>
-    <p class="tagline">日常をちょっとラクにするMacアプリ</p>
-  </div>
-</section>
+    <p class="lead">日常をちょっとラクにするMacアプリ</p>
+  </section>
 
-<section class="apps">
-  <a href="/voice/" class="app-card">
-    <img src="/icon.png" alt="VoiceLatte" class="app-icon" width="80" height="80">
-    <div class="app-info">
-      <h2>VoiceLatte</h2>
-      <p>Mac向けローカルAI音声入力。ショートカットキーでどこでも音声入力。完全オンデバイス処理。</p>
-      <span class="app-link">詳しく見る &rarr;</span>
-    </div>
-  </a>
-</section>
+  <section class="apps">
+    <a href="/voice/" class="app-card">
+      <img src="/icon.png" alt="" class="app-icon" width="64" height="64">
+      <div>
+        <h2>VoiceLatte</h2>
+        <p>声でテキスト入力。完全オンデバイス。</p>
+      </div>
+      <span class="arrow" aria-hidden="true">&rarr;</span>
+    </a>
+  </section>
+</main>
 
 <footer>
   <p>&copy; 2026 HIBACHI inc.</p>
@@ -28,83 +28,71 @@ import Base from '../layouts/Base.astro';
 </Base>
 
 <style>
-  .hero {
-    padding: 6rem 2rem 3rem;
-    text-align: center;
-    background: linear-gradient(160deg, var(--window-bg) 0%, var(--milk) 50%, var(--cream) 100%);
-  }
-  .hero-inner {
-    max-width: 600px;
+  main {
+    max-width: 480px;
     margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .hero {
+    padding: 8rem 0 3rem;
+    text-align: center;
   }
   .hero h1 {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-size: 2.5rem;
     font-weight: 400;
     letter-spacing: 0.02em;
     margin-bottom: 0.5rem;
   }
-  .tagline {
-    font-size: 1.1rem;
+  .lead {
+    font-size: 0.95rem;
     color: var(--dark-coffee);
   }
 
   .apps {
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 4rem 2rem 6rem;
+    padding: 2rem 0 8rem;
   }
   .app-card {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    background: var(--white);
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
     border: 1px solid rgba(193, 160, 123, 0.2);
-    border-radius: 16px;
-    padding: 1.5rem 2rem;
+    border-radius: 14px;
     text-decoration: none;
     color: var(--espresso);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: border-color 0.15s;
   }
   .app-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 32px rgba(92, 57, 40, 0.1);
+    border-color: var(--latte);
   }
   .app-icon {
-    border-radius: 18%;
+    border-radius: 16%;
     flex-shrink: 0;
-    box-shadow: 0 4px 16px rgba(92, 57, 40, 0.12);
   }
-  .app-info h2 {
-    font-size: 1.25rem;
+  .app-card h2 {
+    font-size: 1rem;
     font-weight: 700;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.15rem;
   }
-  .app-info p {
-    font-size: 0.9rem;
-    color: var(--dark-coffee);
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
-  }
-  .app-link {
+  .app-card p {
     font-size: 0.85rem;
+    color: var(--dark-coffee);
+    line-height: 1.5;
+  }
+  .arrow {
+    margin-left: auto;
     color: var(--latte);
-    font-weight: 500;
+    font-size: 1.1rem;
   }
 
   footer {
     background: var(--espresso);
     color: var(--cream);
-    padding: 2rem;
+    padding: 1.5rem;
     text-align: center;
-    font-size: 0.8rem;
-  }
-
-  @media (max-width: 500px) {
-    .app-card {
-      flex-direction: column;
-      text-align: center;
-      padding: 2rem 1.5rem;
-    }
+    font-size: 0.75rem;
+    opacity: 0.8;
   }
 </style>

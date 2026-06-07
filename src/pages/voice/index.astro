@@ -1,288 +1,199 @@
 ---
 import Base from '../../layouts/Base.astro';
 ---
-<Base title="VoiceLatte — Mac向けローカルAI音声入力">
+<Base title="VoiceLatte — Voice to text, on your Mac" description="Voice input anywhere on your Mac. Fully on-device. Open source.">
 
-<section class="hero">
-  <div class="hero-inner">
-    <img src="/voice/icon.png" alt="VoiceLatte" class="hero-icon-img" width="120" height="120">
+<main>
+  <section class="hero">
+    <img src="/icon.png" alt="" class="hero-icon" width="96" height="96">
     <h1>VoiceLatte</h1>
-    <p class="tagline">Mac向けローカルAI音声入力</p>
-    <div class="cta-group">
-      <a href="https://github.com/hibachi-inc/voicelatte-releases/releases/latest" class="btn btn-primary">
-        &#11015; DMGをダウンロード
-      </a>
-      <a href="https://github.com/hibachi-inc/OpenVoiceText" class="btn btn-secondary">
-        &#128736; ソースコード
-      </a>
+    <p class="lead">Macのどこからでも、声でテキスト入力。<br>音声もテキストも、Macの外に出ません。</p>
+    <div class="cta">
+      <a href="https://github.com/hibachi-inc/voicelatte-releases/releases/latest" class="btn-primary">ダウンロード</a>
+      <a href="https://github.com/hibachi-inc/OpenVoiceText" class="btn-ghost">ソースコード</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="features">
-  <h2>Features</h2>
-  <div class="feature-grid">
-    <div class="feature-card">
-      <div class="feature-icon">&#127908;</div>
-      <h3>どこでも音声入力</h3>
-      <p>ショートカットキーを押すだけで、どのアプリからでも音声入力を開始。カーソル位置にテキストが自動挿入されます。</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">&#9995;</div>
-      <h3>長押し入力</h3>
-      <p>キーを押している間だけ録音。離すと入力完了。トランシーバーのように直感的に使えます。</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">&#10024;</div>
-      <h3>AI テキスト整形</h3>
-      <p>Apple Intelligenceが句読点の追加、フィラー除去、文体調整を自動で行います。</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">&#128274;</div>
-      <h3>完全プライベート</h3>
-      <p>音声認識もAI整形もすべてMac上で処理。音声やテキストがインターネットに送信されることはありません。</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">&#128263;</div>
-      <h3>自動ミュート</h3>
-      <p>録音中は他のアプリの音量を自動で下げます。音楽を聴きながらでも正確に音声入力できます。</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">&#9749;</div>
-      <h3>コーヒーブレイクのように</h3>
-      <p>温かみのあるUIで、音声入力の体験をリラックスしたものに。タイピングに疲れたら、一杯のラテのように。</p>
-    </div>
-  </div>
-</section>
+  <section class="showcase">
+    <img src="/screenshots/app.png" alt="VoiceLatte のメインウィンドウ" class="screenshot">
+  </section>
 
-<section class="privacy-section">
-  <div class="privacy-badge">
-    <span class="icon">&#128994;</span>
-    100% オンデバイス処理
-  </div>
-  <p>音声データもテキストデータも、Macの外に出ることは一切ありません。ネットワーク接続すら不要です。</p>
-</section>
+  <section class="points">
+    <div class="point">
+      <h2>ショートカットキーで、どこでも</h2>
+      <p>ブラウザでもエディタでもチャットでも。キーを押して話すだけで、カーソル位置にテキストが入力されます。押している間だけ録音する長押しモードも。</p>
+    </div>
+    <div class="point">
+      <h2>完全にオフライン</h2>
+      <p>音声認識もAI整形もApple Intelligenceでオンデバイス処理。ネットワーク接続は不要です。録音データがMacの外に出ることは一切ありません。</p>
+    </div>
+  </section>
 
-<section class="pro-section">
-  <h2>VoiceLatte Pro</h2>
-  <p class="subtitle">翻訳とカスタム整形で音声入力をさらに便利に</p>
-  <div class="pro-features">
-    <div class="pro-feature">
-      <div class="icon">&#127760;</div>
-      <h3>クイック多言語翻訳</h3>
-      <p>話した言葉をリアルタイムで翻訳。ショートカットキーで言語を切り替えて、翻訳されたテキストが入力されます。</p>
-    </div>
-    <div class="pro-feature">
-      <div class="icon">&#9881;</div>
-      <h3>アプリ別カスタム整形</h3>
-      <p>アプリごとに異なる整形ルールを設定。チャットではカジュアルに、メールでは丁寧に。</p>
-    </div>
-  </div>
-</section>
+  <section class="privacy">
+    <p>100% on-device. No data leaves your Mac.</p>
+  </section>
+</main>
 
 <footer>
-  <div class="footer-links">
+  <nav>
     <a href="privacy/">プライバシーポリシー</a>
     <a href="https://github.com/hibachi-inc/OpenVoiceText">GitHub</a>
-    <a href="https://x.com/tanakaisworking">@tanakaisworking</a>
-    <a href="https://hibachi-inc.jp">ヒバチ株式会社</a>
-  </div>
-  <p class="footer-copy">&copy; 2026 HIBACHI inc. All rights reserved.</p>
+    <a href="https://hibachi-inc.jp">HIBACHI inc.</a>
+  </nav>
+  <p class="copy">&copy; 2026 HIBACHI inc.</p>
 </footer>
 
 </Base>
 
 <style>
+  main {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ── Hero ── */
   .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(160deg, var(--window-bg) 0%, var(--milk) 50%, var(--cream) 100%);
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(193,160,123,0.3) 0%, transparent 70%);
-    top: -200px;
-    right: -100px;
-  }
-  .hero-inner {
-    max-width: 800px;
-    padding: 2rem;
+    padding: 8rem 0 4rem;
     text-align: center;
-    position: relative;
-    z-index: 1;
   }
-  .hero-icon-img {
-    margin-bottom: 1.5rem;
+  .hero-icon {
     border-radius: 22%;
-    animation: float 3s ease-in-out infinite;
-    box-shadow: 0 8px 32px rgba(92, 57, 40, 0.18);
-  }
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    margin-bottom: 1.5rem;
   }
   .hero h1 {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: 2.5rem;
     font-weight: 400;
     letter-spacing: 0.02em;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
-  .tagline {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
+  .lead {
+    font-size: 1.05rem;
     color: var(--dark-coffee);
+    line-height: 1.9;
     margin-bottom: 2.5rem;
   }
-  .cta-group {
+  .cta {
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
     justify-content: center;
-    flex-wrap: wrap;
-  }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.875rem 2rem;
-    border-radius: 100px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
   }
   .btn-primary {
+    display: inline-block;
     background: var(--espresso);
     color: var(--white);
+    padding: 0.7rem 2rem;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.15s;
   }
   .btn-primary:hover {
     background: var(--dark-coffee);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(92, 57, 40, 0.25);
   }
-  .btn-secondary {
-    background: var(--white);
-    color: var(--espresso);
-    border: 1.5px solid var(--latte);
+  .btn-primary:active {
+    transform: scale(0.97);
   }
-  .btn-secondary:hover {
-    background: var(--window-bg);
-    transform: translateY(-2px);
-  }
-
-  .features {
-    padding: 6rem 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  .features h2 {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  .feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-  .feature-card {
-    background: var(--white);
-    border: 1px solid rgba(193, 160, 123, 0.2);
-    border-radius: 16px;
-    padding: 2rem;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .feature-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(92, 57, 40, 0.08);
-  }
-  .feature-icon { font-size: 2rem; margin-bottom: 1rem; }
-  .feature-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
-  .feature-card p { font-size: 0.9rem; color: var(--dark-coffee); line-height: 1.7; }
-
-  .privacy-section {
-    background: var(--window-bg);
-    padding: 4rem 2rem;
-    text-align: center;
-  }
-  .privacy-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: var(--white);
-    border: 1.5px solid var(--success);
-    border-radius: 100px;
-    padding: 1rem 2rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
-  }
-  .privacy-badge .icon { font-size: 1.5rem; }
-  .privacy-section p {
+  .btn-ghost {
+    display: inline-block;
     color: var(--dark-coffee);
-    max-width: 500px;
-    margin: 0 auto;
-    font-size: 0.95rem;
+    padding: 0.7rem 1.5rem;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1.5px solid var(--latte);
+    transition: background 0.15s;
+  }
+  .btn-ghost:hover {
+    background: var(--window-bg);
+  }
+  .btn-ghost:active {
+    transform: scale(0.97);
   }
 
-  .pro-section {
-    padding: 6rem 2rem;
-    max-width: 800px;
-    margin: 0 auto;
+  /* ── Screenshot ── */
+  .showcase {
+    padding: 2rem 0 5rem;
     text-align: center;
   }
-  .pro-section h2 {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    margin-bottom: 1rem;
+  .screenshot {
+    width: 100%;
+    max-width: 560px;
+    border-radius: 12px;
+    border: 1px solid rgba(193, 160, 123, 0.2);
+    box-shadow:
+      0 2px 8px rgba(92, 57, 40, 0.06),
+      0 12px 40px rgba(92, 57, 40, 0.08);
   }
-  .subtitle { color: var(--dark-coffee); margin-bottom: 2.5rem; }
-  .pro-features {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .pro-feature {
-    background: var(--window-bg);
-    border-radius: 16px;
-    padding: 2rem;
-    flex: 1;
-    min-width: 240px;
-    max-width: 340px;
-  }
-  .pro-feature .icon { font-size: 2rem; margin-bottom: 0.75rem; }
-  .pro-feature h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
-  .pro-feature p { font-size: 0.9rem; color: var(--dark-coffee); }
 
+  /* ── Points ── */
+  .points {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 1rem 0 5rem;
+  }
+  .point h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+  .point p {
+    font-size: 0.92rem;
+    color: var(--dark-coffee);
+    line-height: 1.8;
+  }
+
+  /* ── Privacy ── */
+  .privacy {
+    border-top: 1px solid var(--cream);
+    padding: 3rem 0 5rem;
+    text-align: center;
+  }
+  .privacy p {
+    font-size: 0.85rem;
+    color: var(--latte);
+    letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+
+  /* ── Footer ── */
   footer {
     background: var(--espresso);
     color: var(--cream);
-    padding: 3rem 2rem;
+    padding: 2rem 1.5rem;
     text-align: center;
   }
-  footer :global(a) { color: var(--latte); text-decoration: none; }
-  footer :global(a:hover) { text-decoration: underline; }
-  .footer-links {
+  footer nav {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 1.5rem;
-    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
   }
-  .footer-copy { font-size: 0.8rem; opacity: 0.7; }
+  footer :global(a) {
+    color: var(--latte);
+    text-decoration: none;
+  }
+  footer :global(a:hover) {
+    text-decoration: underline;
+  }
+  .copy {
+    font-size: 0.75rem;
+    opacity: 0.5;
+  }
 
-  @media (max-width: 600px) {
-    .hero-inner { padding: 1.5rem; }
-    .features { padding: 4rem 1.5rem; }
-    .feature-grid { grid-template-columns: 1fr; }
+  /* ── Responsive ── */
+  @media (max-width: 500px) {
+    .hero { padding-top: 5rem; }
+    .hero h1 { font-size: 2rem; }
+    .lead { font-size: 0.95rem; }
+    .lead br { display: none; }
+    .cta { flex-direction: column; align-items: center; }
   }
 </style>
