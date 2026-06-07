@@ -17,9 +17,13 @@ const { lang } = Astro.props;
 
 <main>
   <section class="hero">
-    <img src="/icon.png" alt="" class="hero-icon" width="96" height="96">
-    <h1>VoiceLatte</h1>
-    <p class="lead">{t(lang, 'voice.lead.1')}<br>{t(lang, 'voice.lead.2')}</p>
+    <div class="hero-top">
+      <img src="/icon.png" alt="" class="hero-icon" width="88" height="88">
+      <div class="hero-text">
+        <h1>VoiceLatte</h1>
+        <p class="lead">{t(lang, 'voice.lead.1')}<br>{t(lang, 'voice.lead.2')}</p>
+      </div>
+    </div>
     <div class="cta">
       <a href="https://github.com/hibachi-inc/voicelatte-releases/releases/latest/download/VoiceLatte.dmg" class="btn-primary">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 12L3 7h3.5V2h3V7H13L8 12z" fill="currentColor"/><path d="M2 13v1h12v-1H2z" fill="currentColor"/></svg>
@@ -78,11 +82,13 @@ const { lang } = Astro.props;
 
 <style>
   main { max-width: 640px; margin: 0 auto; padding: 0 1.5rem; }
-  .hero { padding: 8rem 0 4rem; text-align: center; }
-  .hero-icon { border-radius: 22%; margin-bottom: 1.5rem; }
-  .hero h1 { font-family: var(--font-display); font-size: 2.5rem; font-weight: 400; letter-spacing: 0.02em; margin-bottom: 1rem; }
-  .lead { font-size: 1.05rem; color: var(--dark-coffee); line-height: 1.9; margin-bottom: 2.5rem; }
-  .cta { display: flex; gap: 0.75rem; justify-content: center; }
+  .hero { padding: 8rem 0 4rem; }
+  .hero-top { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; }
+  .hero-icon { border-radius: 22%; flex-shrink: 0; }
+  .hero-text { min-width: 0; }
+  .hero h1 { font-family: var(--font-display); font-size: 2.5rem; font-weight: 400; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+  .lead { font-size: 1.05rem; color: var(--dark-coffee); line-height: 1.9; }
+  .cta { display: flex; gap: 0.75rem; }
   .btn-primary { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--espresso); color: var(--white); padding: 0.7rem 2rem; border-radius: 100px; font-size: 0.9rem; font-weight: 500; text-decoration: none; transition: background 0.15s; }
   .btn-primary:hover { background: var(--dark-coffee); }
   .btn-primary:active { transform: scale(0.97); }
@@ -116,6 +122,7 @@ const { lang } = Astro.props;
   .copy { font-size: 0.75rem; opacity: 0.5; }
   @media (max-width: 500px) {
     .hero { padding-top: 5rem; }
+    .hero-top { flex-direction: column; text-align: center; gap: 1rem; }
     .hero h1 { font-size: 2rem; }
     .lead { font-size: 0.95rem; }
     .lead br { display: none; }
