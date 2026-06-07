@@ -5,7 +5,7 @@ import Base from '../../layouts/Base.astro';
 
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-icon">&#9749;</div>
+    <img src="/voice/icon.png" alt="VoiceLatte" class="hero-icon-img" width="120" height="120">
     <h1>VoiceLatte</h1>
     <p class="tagline">Mac向けローカルAI音声入力</p>
     <div class="cta-group">
@@ -119,11 +119,11 @@ import Base from '../../layouts/Base.astro';
     position: relative;
     z-index: 1;
   }
-  .hero-icon {
-    font-size: 4rem;
+  .hero-icon-img {
     margin-bottom: 1.5rem;
-    display: inline-block;
+    border-radius: 22%;
     animation: float 3s ease-in-out infinite;
+    box-shadow: 0 8px 32px rgba(92, 57, 40, 0.18);
   }
   @keyframes float {
     0%, 100% { transform: translateY(0); }
