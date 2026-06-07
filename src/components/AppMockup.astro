@@ -1,0 +1,257 @@
+---
+import type { Lang } from '../i18n/translations';
+import { t } from '../i18n/translations';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+---
+<div class="app-window">
+  <div class="titlebar">
+    <div class="traffic-lights">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+    </div>
+  </div>
+  <div class="app-body">
+    <aside class="sidebar">
+      <div class="sidebar-item active">
+        <svg class="si" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4l2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        {t(lang, 'mock.sidebar.history')}
+      </div>
+      <div class="sidebar-item">
+        <svg class="si" viewBox="0 0 20 20" fill="currentColor"><path d="M10 3a1 1 0 011 1v1a5 5 0 015 5 1 1 0 01-2 0 3 3 0 00-3-3V6a1 1 0 00-2 0v1a3 3 0 00-3 3 1 1 0 01-2 0 5 5 0 015-5V4a1 1 0 011-1z" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="10" cy="14" r="1.5" fill="currentColor"/></svg>
+        {t(lang, 'mock.sidebar.preferences')}
+      </div>
+      <div class="sidebar-item">
+        <svg class="si" viewBox="0 0 20 20"><rect x="4" y="6" width="12" height="8" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M7 10h6M10 8v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        {t(lang, 'mock.sidebar.hotkey')}
+      </div>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-item">
+        <svg class="si" viewBox="0 0 20 20"><path d="M7 10l2.5 2.5L13 7.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Pro
+      </div>
+      <div class="sidebar-item">
+        <svg class="si" viewBox="0 0 20 20"><circle cx="10" cy="10" r="6" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M6 12a5 5 0 018 0" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+        {t(lang, 'mock.sidebar.translate')}
+      </div>
+      <div class="sidebar-item">
+        <svg class="si" viewBox="0 0 20 20"><path d="M5 7h10M5 10h10M5 13h7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        {t(lang, 'mock.sidebar.refine')}
+      </div>
+    </aside>
+    <div class="content">
+      <div class="content-header">
+        <span class="content-title">{t(lang, 'mock.sidebar.history')}</span>
+      </div>
+      <div class="mic-btn">
+        <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><path d="M12 2a3 3 0 00-3 3v6a3 3 0 006 0V5a3 3 0 00-3-3z" fill="var(--espresso)" opacity="0.7"/><path d="M19 10a7 7 0 01-14 0" stroke="var(--espresso)" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><path d="M12 17v3M9 20h6" stroke="var(--espresso)" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>{t(lang, 'mock.mic')}</span>
+      </div>
+      <div class="history-list">
+        <div class="history-item">
+          <div class="item-meta">
+            <span class="tag">Claude</span>
+            <span class="tag secondary">generic</span>
+            <span class="time">{t(lang, 'mock.time1')}</span>
+          </div>
+          <p class="item-refined">{t(lang, 'mock.text1.refined')}</p>
+          <p class="item-original">⇅ {t(lang, 'mock.text1.original')}</p>
+        </div>
+        <div class="history-item">
+          <div class="item-meta">
+            <span class="tag">Slack</span>
+            <span class="tag secondary">casual</span>
+            <span class="time">{t(lang, 'mock.time2')}</span>
+          </div>
+          <p class="item-refined">{t(lang, 'mock.text2.refined')}</p>
+          <p class="item-original">⇅ {t(lang, 'mock.text2.original')}</p>
+        </div>
+        <div class="history-item">
+          <div class="item-meta">
+            <span class="tag">Mail</span>
+            <span class="tag secondary">polite</span>
+            <span class="time">{t(lang, 'mock.time3')}</span>
+          </div>
+          <p class="item-refined">{t(lang, 'mock.text3.refined')}</p>
+          <p class="item-original">⇅ {t(lang, 'mock.text3.original')}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .app-window {
+    background: var(--window-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(193,160,123,0.25);
+    box-shadow:
+      0 2px 8px rgba(92,57,40,0.06),
+      0 12px 40px rgba(92,57,40,0.08);
+    font-size: 12px;
+    line-height: 1.5;
+    max-width: 560px;
+    margin: 0 auto;
+    user-select: none;
+  }
+
+  /* Titlebar */
+  .titlebar {
+    height: 36px;
+    background: var(--window-bg);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    border-bottom: 1px solid rgba(193,160,123,0.15);
+  }
+  .traffic-lights {
+    display: flex;
+    gap: 6px;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .dot.red { background: #ff5f56; }
+  .dot.yellow { background: #ffbd2e; }
+  .dot.green { background: #27c93f; }
+
+  /* Body */
+  .app-body {
+    display: flex;
+    min-height: 280px;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: 145px;
+    background: var(--espresso);
+    padding: 8px 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    flex-shrink: 0;
+  }
+  .sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 8px;
+    border-radius: 6px;
+    color: rgba(255,255,255,0.75);
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .sidebar-item.active {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+  }
+  .sidebar-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+    margin: 4px 8px;
+  }
+  .si {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
+  /* Content */
+  .content {
+    flex: 1;
+    background: var(--field-bg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .content-header {
+    padding: 10px 14px 8px;
+    border-bottom: 1px solid rgba(193,160,123,0.12);
+  }
+  .content-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--espresso);
+  }
+
+  /* Mic button */
+  .mic-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 14px;
+    padding: 8px 14px;
+    background: var(--window-bg);
+    border-radius: 10px;
+    color: var(--dark-coffee);
+    font-size: 11.5px;
+  }
+
+  /* History */
+  .history-list {
+    flex: 1;
+    overflow: hidden;
+    padding: 0 14px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .history-item {
+    padding: 8px 10px;
+    background: var(--white);
+    border-radius: 8px;
+    border: 1px solid rgba(193,160,123,0.1);
+  }
+  .item-meta {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 3px;
+  }
+  .tag {
+    font-size: 9.5px;
+    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 4px;
+    background: var(--window-bg);
+    color: var(--espresso);
+  }
+  .tag.secondary {
+    background: transparent;
+    border: 1px solid rgba(193,160,123,0.25);
+    color: var(--dark-coffee);
+    font-weight: 400;
+  }
+  .time {
+    margin-left: auto;
+    font-size: 9.5px;
+    color: var(--latte);
+  }
+  .item-refined {
+    font-size: 12px;
+    color: var(--espresso);
+    font-weight: 500;
+    margin-bottom: 2px;
+  }
+  .item-original {
+    font-size: 10.5px;
+    color: var(--latte);
+  }
+
+  /* Responsive */
+  @media (max-width: 500px) {
+    .sidebar { width: 110px; }
+    .sidebar-item { font-size: 10px; padding: 4px 6px; }
+    .si { width: 12px; height: 12px; }
+    .app-window { font-size: 11px; }
+    .app-body { min-height: 240px; }
+  }
+</style>

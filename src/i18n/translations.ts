@@ -69,6 +69,23 @@ export const translations = {
     'privacy.storage.text': 'Voice input history is stored only on your Mac\'s local storage. You can delete it at any time from the app\'s settings.',
     'privacy.sharing.title': 'Third-Party Sharing',
     'privacy.sharing.text': 'VoiceLatte does not share any data with third parties.',
+
+    // App mockup
+    'mock.sidebar.history': 'Voice History',
+    'mock.sidebar.preferences': 'Preferences',
+    'mock.sidebar.hotkey': 'Hotkey',
+    'mock.sidebar.translate': 'Quick Translate',
+    'mock.sidebar.refine': 'Custom Refine',
+    'mock.mic': 'Tap to start voice input',
+    'mock.time1': '3 min ago',
+    'mock.time2': '15 min ago',
+    'mock.time3': '1 hr ago',
+    'mock.text1.refined': 'Let\'s schedule the meeting for next Tuesday.',
+    'mock.text1.original': 'let\'s schedule the meeting for um next tuesday',
+    'mock.text2.refined': 'Sounds good, I\'ll check and get back to you!',
+    'mock.text2.original': 'sounds good i\'ll check and get back to you',
+    'mock.text3.refined': 'Thank you for your prompt response. I would like to confirm the details.',
+    'mock.text3.original': 'thank you for your prompt response i would like to confirm the details',
   },
   ja: {
     // Top page
@@ -131,6 +148,23 @@ export const translations = {
     'privacy.storage.text': '音声入力の履歴はお使いのMacのローカルストレージにのみ保存されます。アプリの設定画面からいつでも削除できます。',
     'privacy.sharing.title': '第三者へのデータ提供',
     'privacy.sharing.text': 'VoiceLatteはいかなるデータも第三者に提供しません。',
+
+    // App mockup
+    'mock.sidebar.history': '音声入力履歴',
+    'mock.sidebar.preferences': '基本設定',
+    'mock.sidebar.hotkey': 'ショートカット',
+    'mock.sidebar.translate': 'クイック翻訳',
+    'mock.sidebar.refine': 'カスタム整形',
+    'mock.mic': 'タップして音声入力を開始',
+    'mock.time1': '3分前',
+    'mock.time2': '15分前',
+    'mock.time3': '1時間前',
+    'mock.text1.refined': '来週の火曜日にミーティングを入れましょう。',
+    'mock.text1.original': '来週の火曜日にえーとミーティングを入れましょう',
+    'mock.text2.refined': 'いいね、確認して折り返すよ！',
+    'mock.text2.original': 'いいね確認して折り返すよ',
+    'mock.text3.refined': 'ご返信ありがとうございます。詳細を確認させていただきたく存じます。',
+    'mock.text3.original': 'ご返信ありがとうございます詳細を確認させていただきたく存じます',
   },
 } as const;
 
