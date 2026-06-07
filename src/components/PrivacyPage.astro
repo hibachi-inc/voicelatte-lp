@@ -1,0 +1,74 @@
+---
+import type { Lang } from '../i18n/translations';
+import { t } from '../i18n/translations';
+import Base from '../layouts/Base.astro';
+import LangSwitch from './LangSwitch.astro';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+---
+<Base title={t(lang, 'privacy.title')} description={t(lang, 'privacy.overview.text')} lang={lang} path="/voice/privacy/">
+
+<LangSwitch lang={lang} path="/voice/privacy/" />
+
+<header>
+  <a href={`/${lang}/voice/`}>&#9749; VoiceLatte</a>
+</header>
+
+<main>
+  <h1>{t(lang, 'privacy.heading')}</h1>
+  <p class="updated">{t(lang, 'privacy.updated')}</p>
+
+  <h2>{t(lang, 'privacy.overview.title')}</h2>
+  <p>{t(lang, 'privacy.overview.text')}</p>
+
+  <h2>{t(lang, 'privacy.data.title')}</h2>
+  <p>{t(lang, 'privacy.data.text')}</p>
+  <ul>
+    <li><strong>Audio</strong>: {t(lang, 'privacy.data.audio')}</li>
+    <li><strong>Text</strong>: {t(lang, 'privacy.data.text_item')}</li>
+    <li><strong>AI</strong>: {t(lang, 'privacy.data.ai')}</li>
+    <li><strong>Analytics</strong>: {t(lang, 'privacy.data.analytics')}</li>
+  </ul>
+
+  <h2>{t(lang, 'privacy.iap.title')}</h2>
+  <p>{t(lang, 'privacy.iap.text')}</p>
+
+  <h2>{t(lang, 'privacy.storage.title')}</h2>
+  <p>{t(lang, 'privacy.storage.text')}</p>
+
+  <h2>{t(lang, 'privacy.sharing.title')}</h2>
+  <p>{t(lang, 'privacy.sharing.text')}</p>
+
+  <div class="contact">
+    <p><strong>HIBACHI inc.</strong></p>
+    <p>Website: <a href="https://hibachi-inc.jp">https://hibachi-inc.jp</a></p>
+  </div>
+</main>
+
+<footer>
+  <a href={`/${lang}/voice/`}>VoiceLatte</a> &mdash; {t(lang, 'footer.copy')}
+</footer>
+
+</Base>
+
+<style>
+  header { background: var(--window-bg); padding: 1.5rem 2rem; border-bottom: 1px solid rgba(193,160,123,0.2); }
+  header a { color: var(--espresso); text-decoration: none; font-weight: 700; font-size: 1.1rem; }
+  header a:hover { opacity: 0.7; }
+  main { max-width: 720px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+  h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .updated { font-size: 0.85rem; color: var(--dark-coffee); margin-bottom: 2.5rem; }
+  h2 { font-size: 1.2rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem; padding-bottom: 0.25rem; border-bottom: 2px solid var(--cream); }
+  p, li { font-size: 0.95rem; margin-bottom: 0.75rem; }
+  ul { padding-left: 1.5rem; }
+  li { margin-bottom: 0.5rem; }
+  .contact { background: var(--window-bg); border-radius: 12px; padding: 1.5rem; margin-top: 2rem; }
+  .contact p { margin-bottom: 0.25rem; }
+  .contact a { color: var(--dark-coffee); }
+  footer { background: var(--espresso); color: var(--cream); padding: 2rem; text-align: center; font-size: 0.8rem; }
+  footer :global(a) { color: var(--latte); text-decoration: none; }
+  footer :global(a:hover) { text-decoration: underline; }
+</style>

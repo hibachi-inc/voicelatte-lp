@@ -1,0 +1,33 @@
+---
+import type { Lang } from '../i18n/translations';
+import { languages, alternateLang, localePath } from '../i18n/translations';
+
+interface Props {
+  lang: Lang;
+  path: string;
+}
+const { lang, path } = Astro.props;
+const altLang = alternateLang(lang);
+const altHref = localePath(altLang, path);
+---
+<a href={altHref} class="lang-switch">{languages[altLang]}</a>
+
+<style>
+  .lang-switch {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    font-size: 0.8rem;
+    color: var(--dark-coffee);
+    text-decoration: none;
+    border: 1px solid var(--latte);
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    background: var(--white);
+    z-index: 10;
+    transition: background 0.15s;
+  }
+  .lang-switch:hover {
+    background: var(--window-bg);
+  }
+</style>

@@ -1,12 +1,26 @@
 ---
+import type { Lang } from '../i18n/translations';
+import { languages, alternateLang, localePath } from '../i18n/translations';
+
 interface Props {
   title: string;
   description?: string;
+  lang?: Lang;
+  path?: string; // e.g. "/voice/"
 }
-const { title, description = 'VoiceLatteは、Macのどこからでも声でテキスト入力できるアプリです。完全オンデバイス処理で音声もテキストもMacの外に出ません。' } = Astro.props;
+const {
+  title,
+  description = 'Voice input anywhere on your Mac. Fully on-device. Open source.',
+  lang = 'en',
+  path = '/',
+} = Astro.props;
+
+const altLang = alternateLang(lang);
+const altHref = localePath(altLang, path);
+const htmlLang = lang === 'ja' ? 'ja' : 'en';
 ---
 <!DOCTYPE html>
-<html lang="ja">
+<html lang={htmlLang}>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +29,8 @@ const { title, description = 'VoiceLatteは、Macのどこからでも声でテ�
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="alternate" hreflang={altLang} href={altHref}>
+  <link rel="alternate" hreflang={lang} href={localePath(lang, path)}>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
