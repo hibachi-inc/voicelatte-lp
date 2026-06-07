@@ -260,4 +260,12 @@ const { lang } = Astro.props;
     background: rgba(255,255,255,0.15);
     border-radius: 4px;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .state-listening, .state-refining, .state-done { animation: none; }
+    .state-listening { opacity: 1; }
+    .ind-glow { animation: none; }
+    .spinner { animation: none; }
+    .bar { animation: none; height: 6px; }
+  }
 </style>

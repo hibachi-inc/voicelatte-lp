@@ -10,7 +10,7 @@ const { lang, path } = Astro.props;
 const altLang = alternateLang(lang);
 const altHref = localePath(altLang, path);
 ---
-<a href={altHref} class="lang-switch">{languages[altLang]}</a>
+<a href={altHref} class="lang-switch" aria-label={lang === 'en' ? 'Switch to Japanese' : '英語に切り替え'}>{languages[altLang]}</a>
 
 <style>
   .lang-switch {

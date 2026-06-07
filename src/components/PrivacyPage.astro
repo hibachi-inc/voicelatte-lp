@@ -27,10 +27,10 @@ const { lang } = Astro.props;
   <h2>{t(lang, 'privacy.data.title')}</h2>
   <p>{t(lang, 'privacy.data.text')}</p>
   <ul>
-    <li><strong>Audio</strong>: {t(lang, 'privacy.data.audio')}</li>
-    <li><strong>Text</strong>: {t(lang, 'privacy.data.text_item')}</li>
-    <li><strong>AI</strong>: {t(lang, 'privacy.data.ai')}</li>
-    <li><strong>Analytics</strong>: {t(lang, 'privacy.data.analytics')}</li>
+    <li><strong>{t(lang, 'privacy.label.audio')}</strong>: {t(lang, 'privacy.data.audio')}</li>
+    <li><strong>{t(lang, 'privacy.label.text')}</strong>: {t(lang, 'privacy.data.text_item')}</li>
+    <li><strong>{t(lang, 'privacy.label.ai')}</strong>: {t(lang, 'privacy.data.ai')}</li>
+    <li><strong>{t(lang, 'privacy.label.analytics')}</strong>: {t(lang, 'privacy.data.analytics')}</li>
   </ul>
 
   <h2>{t(lang, 'privacy.iap.title')}</h2>
