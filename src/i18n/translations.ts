@@ -15,6 +15,7 @@ export const translations = {
     'top.heading': 'Latte',
     'top.tagline': 'Mac apps that make your day a little easier.',
     'top.voicelatte.desc': 'Voice to text. Fully on-device.',
+    'top.translatte.desc': 'Select, translate. Fully on-device.',
 
     // VoiceLatte LP
     'voice.title': 'VoiceLatte — Voice to text, on your Mac',
@@ -104,6 +105,7 @@ export const translations = {
     'top.heading': 'Latte',
     'top.tagline': '日常をちょっとラクにするMacアプリ',
     'top.voicelatte.desc': '声でテキスト入力。完全オンデバイス。',
+    'top.translatte.desc': '選んで、翻訳。完全オンデバイス。',
 
     // VoiceLatte LP
     'voice.title': 'VoiceLatte — Mac向けローカルAI音声入力',

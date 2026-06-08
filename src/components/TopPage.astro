@@ -28,6 +28,15 @@ const { lang } = Astro.props;
       </div>
       <span class="arrow" aria-hidden="true">&rarr;</span>
     </a>
+
+    <a href={`/${lang}/translate/`} class="app-card app-card--new">
+      <img src="/translatte-icon.png" alt="" class="app-icon" width="64" height="64">
+      <div>
+        <h2>TransLatte</h2>
+        <p>{t(lang, 'top.translatte.desc')}</p>
+      </div>
+      <span class="arrow" aria-hidden="true">&rarr;</span>
+    </a>
   </section>
 </main>
 
@@ -42,7 +51,7 @@ const { lang } = Astro.props;
   .hero { padding: 8rem 0 3rem; text-align: center; }
   .hero h1 { font-family: var(--font-display); font-size: 2.5rem; font-weight: 400; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
   .lead { font-size: 0.95rem; color: var(--dark-coffee); }
-  .apps { padding: 2rem 0 8rem; }
+  .apps { padding: 2rem 0 8rem; display: flex; flex-direction: column; gap: 1rem; }
   .app-card { display: flex; align-items: center; gap: 1rem; padding: 1.25rem 1.5rem; border: 1px solid rgba(193,160,123,0.2); border-radius: 14px; text-decoration: none; color: var(--espresso); transition: border-color 0.15s; }
   .app-card:hover { border-color: var(--latte); }
   .app-icon { border-radius: 16%; flex-shrink: 0; }
